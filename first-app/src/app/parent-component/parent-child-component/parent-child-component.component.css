@@ -2,5 +2,6 @@ div{
     border: 2px solid black;
     padding: 20px;
     color:red;
-    background-color: blanchedalmond
+    background-color: blanchedalmond;
+    margin: 1px
 }

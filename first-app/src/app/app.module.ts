@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import{FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ParentComponentComponent } from './parent-component/parent-component.component';
@@ -16,7 +17,8 @@ import { ParentChildComponentComponent } from './parent-component/parent-child-c
     ParentChildComponentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

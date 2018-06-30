@@ -22,6 +22,10 @@ Hi! this is class selector loaded from '.class-selector-name' defined in compone
         <div app-attribute-selector-component></div>
       </div>
 
+<input type="text" [(ngModel)]="strValue"/>
+<p>{{strValue}}</p>
+
+<button (click)="clear()" [disabled]="!strValue">Clear </button>
 
 <!-- <class-selector-name>
     Hi! this is class selector as element
