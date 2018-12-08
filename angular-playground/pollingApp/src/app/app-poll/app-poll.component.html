@@ -1,5 +1,15 @@
-<p>
+<section class="container-fluid center poll-center">
   app-poll works!
-</p>
-<p-chart type="doughnut" [data]="data"></p-chart>
-<button type="button" pButton (click)="update($event)"></button>
+
+  <div class="row">
+      <div class="col-sm-3">A </div>
+      <div class="col-sm-6">B
+          <p-chart type="doughnut" [data]="data"  width="30vw" height="80vh"></p-chart>
+          <button type="button" pButton (click)="update($event)"></button>
+          
+      </div>
+      <div class="col-sm-3">C </div>
+    </div>
+
+
+</section>

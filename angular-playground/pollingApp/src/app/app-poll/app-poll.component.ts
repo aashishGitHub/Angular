@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ChartModule} from 'primeng/chart';
 
-
 @Component({
   selector: 'app-app-poll',
   templateUrl: './app-poll.component.html',
