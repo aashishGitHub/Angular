@@ -1,4 +1,4 @@
-export interface Poll{
+export interface AppPoll{
 
     id: number,
     title: string,

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {Poll} from './Poll';
+import {AppPoll} from './app-poll';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
@@ -11,8 +11,8 @@ export class PollService{
     
 constructor(private http: HttpClient){}
 
-getPolls(): Observable<Poll[]>{
-    return this.http.get<Poll[]>(this.pollUrl)
+getPolls(): Observable<AppPoll[]>{
+    return this.http.get<AppPoll[]>(this.pollUrl)
     .pipe(
         tap(data=> console.log(JSON.stringify(data))),
         catchError(this.handleError)

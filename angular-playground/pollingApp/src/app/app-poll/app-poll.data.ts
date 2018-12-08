@@ -1,11 +1,11 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Poll } from './Poll';
+import { AppPoll } from './app-poll';
 
-export class PollsData implements InMemoryDbService{
+export class AppPollData implements InMemoryDbService{
   
 
     createDb(){
-        const polls: Poll[] = 
+        const polls: AppPoll[] = 
         [{
                 "id": 1,
                 "title": "Is bitcoin worth the time and money that mining requires?",
