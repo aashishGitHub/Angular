@@ -26,9 +26,7 @@ ngOnInit() {
         error => this.errorMessage = <any>error)
     }
 
- vote(event: ElementRef, index: number): any{
-        console.log(index);
-    }
+
 
 update(event: Event) {
   //this.data = //create new data

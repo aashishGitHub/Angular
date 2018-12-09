@@ -1,1 +1,21 @@
-<app-poll [poll] = poll name="world"></app-poll>
+
+<app-poll [poll] = poll></app-poll>
+<section>
+    <div class="row">
+        <div *ngFor="let poll of polls; let i = index;" class="col-sm-12 col-md-6 card">
+            <div class="row card-body">
+                <div class="col-sm-3">
+                    <img class="width-inherit" src="../assets/doughnutChart.png" alt="Comparision chart" />
+                </div>
+                <div class="col-sm-6">     
+                    <div>
+                        <h6>{{poll?.publishedDate | date}}</h6>
+                    </div>
+                    <div>
+                       <h5> {{poll.title}}</h5>
+                    </div>                   
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
