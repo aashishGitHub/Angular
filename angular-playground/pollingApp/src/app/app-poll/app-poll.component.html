@@ -1,15 +1,37 @@
-<section class="container-fluid center poll-center">
-  app-poll works!
-
-  <div class="row">
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6">
-          <p-chart type="doughnut" [data]="data"  width="30vw" height="80vh"></p-chart>
-          <button type="button" pButton (click)="update($event)"></button>
-          
+<div class="row">
+        <div class="col-sm-12">
+            <h1>{{poll?.title}}</h1>
+        </div>
+</div>
+<div class="row">
+        <div class="col-sm-12 text-right">
+            <h5 *ngIf="poll">Published date: {{poll?.publishedDate | date :'medium'}}</h5>
+        </div>
+</div>
+<div class="jumbotron">
+    <section *ngIf="true" class="container-fluid center poll-center">
+        <div class="row">
+            <div class="col-sm-3">
+                <div *ngIf="poll?.answer.type == 'Single'">
+                    <div *ngFor="let option of poll.answer.options; let i = index"
+                    class="m-1"
+                    (click)="vote($event, i)">
+                        <button type="button" class="m-w-17"
+                        [ngClass]="{
+                            'btn btn-success': i == '0',
+                            'btn btn-danger': i == '1'}">
+                            {{option.label}}</button>
+                    </div>
+                 </div>
+            </div>
+                <div class="col-sm-6">
+                    <p-chart type="doughnut" [data]="data"  width="30vw" height="50vh"></p-chart>
+                    <button type="button" pButton (click)="update($event)"></button>
+                </div>
+                <div class="col-sm-3"></div>
+                  </div>
+                  <div class="row">
+                      Total number of votes recorder: 100
+                  </div>             
+        </section>
       </div>
-      <div class="col-sm-3"></div>
-    </div>
-
-
-</section>

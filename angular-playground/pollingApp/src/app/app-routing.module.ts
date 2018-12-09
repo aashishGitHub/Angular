@@ -5,7 +5,7 @@ import { AppPollComponent } from 'src/app/app-poll/app-poll.component';
 const routes: Routes = [
   {path: 'welcome', component: AppPollComponent},
  // {path: '**', redirectTo: "welcome", pathMatch: "full"},
-  {path:'', redirectTo: "welcome", pathMatch: "full"}
+ // {path:'', redirectTo: "welcome", pathMatch: "full"}
 
 ];
 

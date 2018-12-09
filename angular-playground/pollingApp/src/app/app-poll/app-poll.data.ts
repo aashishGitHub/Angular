@@ -109,6 +109,6 @@ export class AppPollData implements InMemoryDbService{
               }
             ];
         
-            return {polls};
+            return { polls };
         }
 }

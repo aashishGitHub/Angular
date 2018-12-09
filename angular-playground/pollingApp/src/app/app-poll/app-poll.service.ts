@@ -7,14 +7,18 @@ import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class PollService{
-    private pollUrl ='api/poll';
+    private pollUrl ='api/polls';
+    //pollsData : AppPoll[]; 
     
 constructor(private http: HttpClient){}
 
 getPolls(): Observable<AppPoll[]>{
     return this.http.get<AppPoll[]>(this.pollUrl)
     .pipe(
-        tap(data=> console.log(JSON.stringify(data))),
+        tap(data=> {
+            //this.pollsData = data;
+            console.log(JSON.stringify(data))
+       }),
         catchError(this.handleError)
     )
 }
