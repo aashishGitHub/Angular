@@ -6,7 +6,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
-export class PollService{
+export class AppPollService{
     private pollUrl ='api/polls';
     //pollsData : AppPoll[]; 
     

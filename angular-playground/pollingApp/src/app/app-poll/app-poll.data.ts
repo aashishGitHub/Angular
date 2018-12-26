@@ -3,8 +3,7 @@ import { AppPoll } from './app-poll';
 
 export class AppPollData implements InMemoryDbService{
   
-
-    createDb(){
+  createDb(){
         const polls: AppPoll[] = 
         [{
                 "id": 1,
