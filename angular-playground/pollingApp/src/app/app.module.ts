@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { KycFormComponent } from './user/kyc-form.component';
+import { MenuComponent } from './home/menu.component';
 
 
 //import { HttpClient } from '@angular/common/http';
@@ -21,6 +22,7 @@ import { KycFormComponent } from './user/kyc-form.component';
   declarations: [
     AppComponent,
     KycFormComponent,
+    MenuComponent,
   ],
   imports: [
    // HttpClient,  
