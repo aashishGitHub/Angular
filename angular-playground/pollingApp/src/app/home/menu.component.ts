@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,24 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.less']
 })
 export class MenuComponent implements OnInit {
-  pageTitle="Polling Application"
+  pageTitle="PollApp";
+
+  constructor(private authService: AuthService, 
+    private router: Router){} 
   
   ngOnInit() {    
   }
 
   //Getter property as we use it like  *ngIf="isLoggedIn">
   get isLoggedIn(): boolean{ 
-    return true;
+    return this.authService.isLoggedIn();
   }
 
-  get userName(): string{
+  get userName(): string {
+    if (this.authService.currentUser) {
+      return this.authService.currentUser.userName;
+    }
     return '';
   }
-  constructor(private router: Router) { }
   
-  logout(): void{
+  logOut(): void {
+    this.authService.logout();
     this.router.navigate(['/welcome']);
-
   }
-
 }

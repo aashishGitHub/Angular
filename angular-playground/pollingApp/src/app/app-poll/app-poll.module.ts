@@ -16,23 +16,23 @@ import { BrowserModule } from '@angular/platform-browser';
 // import { ProductDetailComponent } from './product-detail.component';
 // import { ProductEditComponent } from './product-edit.component';
 // import { ProductEditGuard } from './product-edit.guard';
-
-@NgModule({
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ChartModule,  
-    InMemoryWebApiModule.forRoot(AppPollData),
-    RouterModule.forChild([
-      { path: 'polls', component: AppPollListComponent },
-      { path: 'polls/:id', component: AppPollComponent },
-      {
-        path: 'polls/:id/edit',
-        //canDeactivate: [ProductEditGuard],
-        component: AppPollComponent
-      }
-    ])
-  ],
+  
+  @NgModule({
+    imports: [
+      BrowserModule,
+      HttpClientModule,
+      ChartModule,  
+      InMemoryWebApiModule.forRoot(AppPollData),
+      RouterModule.forChild([
+        { path: 'polls', component: AppPollListComponent },
+        { path: 'polls/:id', component: AppPollComponent },
+        {
+          path: 'polls/:id/edit',
+          //canDeactivate: [ProductEditGuard],
+          component: AppPollComponent
+        }
+      ])
+    ],
   declarations: [
     AppPollComponent,
     AppPollListComponent,
