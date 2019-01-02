@@ -6,7 +6,7 @@ import { AppPollResult } from './app-poll-result.data';
 import { AppPollResultsService } from './app-poll-results.service';
 
 @Component({
-  selector: 'app-app-poll-list',
+  selector: 'app-poll-list',
   templateUrl: './app-poll-list.component.html',
   styleUrls: ['./app-poll-list.component.less']
 })
@@ -17,15 +17,17 @@ export class AppPollListComponent implements OnInit {
   errorMessage = '';
   pResult: AppPollResult;
   
-constructor(private pollService: AppPollService,
-private pollResultService: AppPollResultsService) {    
-}
+constructor(private pollService: AppPollService
+//, private pollResultService: AppPollResultsService
+) {    }
 
 ngOnInit() {
     this.pollService.getPolls().subscribe(
         polls => {
             this.polls = polls;
-            this.poll = this.getLatestPoll(this.polls);
+            this.poll = this.getLatestPoll(this.polls);  
+        
+            console.log(JSON.stringify(this.polls))
         },
         error => this.errorMessage = <any>error)
     }

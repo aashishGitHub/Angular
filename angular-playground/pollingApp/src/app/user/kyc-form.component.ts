@@ -6,7 +6,6 @@ import {ProgressBarModule} from 'primeng/primeng';
 
 import { debounceTime } from 'rxjs/operators';
 
-
 @Component({  
   selector: 'app-kyc-form',
   templateUrl: './kyc-form.component.html',
@@ -57,15 +56,11 @@ export class KycFormComponent implements OnInit {
     this.kycForm.valueChanges.subscribe(control=>{
       debugger;
     })
-  }
-  
+  }  
   save() {
     console.log(this.kycForm);
     console.log('Saved: ' + JSON.stringify(this.kycForm.value));
   }
-
-  
-
   // 3. custom validation for email
   setMessage(c: AbstractControl): void {
     this.emailMessage = '';

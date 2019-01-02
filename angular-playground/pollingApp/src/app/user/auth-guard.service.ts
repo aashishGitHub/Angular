@@ -15,9 +15,6 @@ export class AuthGuard implements CanActivate{
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
         return this.checkLoggedIn(state.url);      
-        
-       
-        
     }
 
     checkLoggedIn(url: string): boolean{
@@ -26,8 +23,7 @@ export class AuthGuard implements CanActivate{
 
          // Retain the attempted URL for redirection
          this.authService.redirectUrl = url;
-         this.router.navigate(['/login']);
+         this.router.navigate(['kycform/login']);
          return false;
     }
-
 }

@@ -15,15 +15,15 @@ export class AppPollResultsService {
 
   constructor(private http: HttpClient) { }
 
-  getPollResult(id: number): Observable<AppPollResult>{
-    const url = `${this.pollResultUrl}/${id}`;
+  // getPollResult(id: number): Observable<AppPollResult>{
+  //   const url = `${this.pollResultUrl}/${id}`;
 
-    return this.http.get<AppPollResult>(url)
-    .pipe(
-        tap(data=>  console.log(JSON.stringify(data) )),
-        catchError(this.handleError)
-    );
-  }
+  //   return this.http.get<AppPollResult>(url)
+  //   .pipe(
+  //       tap(data=>  console.log(JSON.stringify(data) )),
+  //       catchError(this.handleError)
+  //   );
+  // }
 private handleError(err) {
   // in a real world app, we may send the server to some remote logging infrastructure
   // instead of just logging it to the console

@@ -17,7 +17,7 @@ getPolls(): Observable<AppPoll[]>{
     .pipe(
         tap(data=> {
             //this.pollsData = data;
-            console.log(JSON.stringify(data))
+            // console.log(JSON.stringify(data))
        }),
         catchError(this.handleError)
     )
