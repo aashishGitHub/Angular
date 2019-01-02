@@ -11,23 +11,20 @@ import { AppPollData } from './app-poll.data';
 import { AppPollComponent } from './app-poll.component';
 import { AppPollListComponent} from  './app-poll-list.component';
 import { BrowserModule } from '@angular/platform-browser';
-
-// import { ProductListComponent } from './product-list.component';
-// import { ProductDetailComponent } from './product-detail.component';
-// import { ProductEditComponent } from './product-edit.component';
-// import { ProductEditGuard } from './product-edit.guard';
-  
+import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpModule } from '@angular/http';
+import { AppPollService } from 'src/app/app-poll/app-poll.service';
+ 
   @NgModule({
     imports: [
-      BrowserModule,
+      SharedModule,HttpModule,
       HttpClientModule,
       ChartModule,  
       InMemoryWebApiModule.forRoot(AppPollData),
       RouterModule.forChild([
-        { path: 'polls', component: AppPollListComponent },
-        { path: 'polls/:id', component: AppPollComponent },
+        { path: '', component: AppPollListComponent },       
         {
-          path: 'polls/:id/edit',
+          path: ':id/edit',
           //canDeactivate: [ProductEditGuard],
           component: AppPollComponent
         }
@@ -35,9 +32,8 @@ import { BrowserModule } from '@angular/platform-browser';
     ],
   declarations: [
     AppPollComponent,
-    AppPollListComponent,
-    // ProductDetailComponent,
-    // ProductEditComponent
-  ]
+    AppPollListComponent,    
+  ],
+  providers:[AppPollService]
 })
 export class AppPollModule { }

@@ -4,17 +4,22 @@ import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KycFormComponent } from 'src/app/user/kyc-form.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+import { ButtonModule, DropdownModule, PanelModule, ProgressBarModule } from 'primeng/primeng';
 
 const userRoutes: Routes = [
-{path: 'login', component: LoginComponent}
+{path: 'login', component: LoginComponent},
+{path: '', component: KycFormComponent}
+
 ];
 
 @NgModule({
-    declarations:[LoginComponent],
+    declarations:[LoginComponent, KycFormComponent],
     imports:[
-        BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
+        ProgressBarModule,
+        SharedModule,  
         RouterModule.forChild(userRoutes)
     ],
     providers:[]
