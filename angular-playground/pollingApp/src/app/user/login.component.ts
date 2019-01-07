@@ -4,22 +4,39 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/user/auth.service';
 
+/* NgRx */
+import { Store, select } from '@ngrx/store';
+
 @Component({
     templateUrl:'./login.component.html'
 })
-export class LoginComponent implements OnInit, OnDestroy{
+export class LoginComponent implements OnInit{
     errorMessage: string;
+
+    maskUserName : boolean;
+
     constructor(
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private store: Store<any>
+
     ){}
     ngOnInit(){
-
+      this.store.pipe(select('users')).subscribe(
+        users => {
+          if(users){
+            this.maskUserName = users.maskUserName;
+          }
+        })
     }
-    ngOnDestroy(){
-
+  
+    checkChanged(changed: boolean): void{
+      this.store.dispatch({
+        type: '[User] MASK_USER_NAME',
+        payload: changed
+      });
     }
-
+    
     login(loginForm: NgForm): void {
         if (loginForm && loginForm.valid) {
           const userName = loginForm.form.value.userName;
@@ -34,5 +51,9 @@ export class LoginComponent implements OnInit, OnDestroy{
         } else {
           this.errorMessage = 'Please enter a user name and password.';
         }
+      }
+
+      cancel():void{
+        this.router.navigate(['welcome'])
       }
 }

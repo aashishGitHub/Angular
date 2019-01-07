@@ -5,6 +5,9 @@ import { AppPoll } from './app-poll';
 import { ElementRef } from '@angular/core';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { PollActionTypes } from 'src/app/app-poll/state/poll.actions';
+import { AppPollResult } from 'src/app/app-poll/app-poll-result';
 
 @Component({
   selector: 'app-poll',
@@ -24,7 +27,7 @@ export class AppPollComponent implements OnInit, OnChanges {
   errorMessage = '';
   
 //constructor(private pollService: PollService) {
-    constructor() {
+    constructor(private store : Store<any>) {
     this.data = {
           labels: ['A','B','C'],
           datasets: [
@@ -52,7 +55,21 @@ ngOnInit() {
        }
 vote(event: ElementRef, index: number): any{
         console.log(index);
+        const pollState : AppPollResult = {
+            id: 0,
+            votesCount : 0,
+            options : [{
+                id: index,
+                count:100
+            }]
+            }
+
+        this.store.dispatch({
+            type: PollActionTypes.ToggleVote,
+            payload: pollState
+        })
     }
+    
 
 update(event: Event) {
   //this.data = //create new data

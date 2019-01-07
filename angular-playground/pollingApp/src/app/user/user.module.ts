@@ -8,6 +8,8 @@ import { KycFormComponent } from 'src/app/user/kyc-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ButtonModule, DropdownModule, PanelModule, ProgressBarModule } from 'primeng/primeng';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from 'src/app/user/state/user.reducer';
 
 const userRoutes: Routes = [
 {path: 'login', component: LoginComponent},
@@ -20,7 +22,8 @@ const userRoutes: Routes = [
     imports:[
         ProgressBarModule,
         SharedModule,  
-        RouterModule.forChild(userRoutes)
+        RouterModule.forChild(userRoutes),
+        StoreModule.forFeature('users',reducer)
     ],
     providers:[]
 

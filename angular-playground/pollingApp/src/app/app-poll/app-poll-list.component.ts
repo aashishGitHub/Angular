@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AppPoll } from './app-poll';
 import { AppPollService } from './app-poll.service';
 import { ElementRef } from '@angular/core/src/linker/element_ref';
-import { AppPollResult } from './app-poll-result.data';
+
 import { AppPollResultsService } from './app-poll-results.service';
+import { AppPollResult } from 'src/app/app-poll/app-poll-result';
 
 @Component({
   selector: 'app-poll-list',
@@ -25,9 +26,8 @@ ngOnInit() {
     this.pollService.getPolls().subscribe(
         polls => {
             this.polls = polls;
-            this.poll = this.getLatestPoll(this.polls);  
-        
-            console.log(JSON.stringify(this.polls))
+            this.poll = this.getLatestPoll(this.polls);          
+           
         },
         error => this.errorMessage = <any>error)
     }

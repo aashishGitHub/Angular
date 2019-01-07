@@ -15,6 +15,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpModule } from '@angular/http';
 import { AppPollService } from 'src/app/app-poll/app-poll.service';
  
+import { StoreModule } from '@ngrx/store';
+import { PollReducer } from 'src/app/app-poll/state/poll.reducer';
+
   @NgModule({
     imports: [
       SharedModule,HttpModule,
@@ -28,7 +31,8 @@ import { AppPollService } from 'src/app/app-poll/app-poll.service';
           //canDeactivate: [ProductEditGuard],
           component: AppPollComponent
         }
-      ])
+      ]),
+      StoreModule.forFeature('votes',{PollReducer})
     ],
   declarations: [
     AppPollComponent,

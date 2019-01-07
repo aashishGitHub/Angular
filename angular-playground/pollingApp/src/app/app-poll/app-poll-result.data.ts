@@ -1,7 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { AppPoll } from './app-poll';
 
-export class AppPollResult implements InMemoryDbService{
+export class AppPollResultData implements InMemoryDbService{
     createDb() {
 
         const pollResult = [
