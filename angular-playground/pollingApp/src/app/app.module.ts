@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
-    AppComponent, MenuComponent, WelcomeComponent,ShellComponent, PageNotFoundComponent
+    AppComponent, MenuComponent, WelcomeComponent, ShellComponent, PageNotFoundComponent
   ],
   imports: [
    BrowserModule,
@@ -26,7 +26,7 @@ import { environment } from '../environments/environment';
    AppRoutingModule,
    StoreModule.forRoot({}),
    StoreDevtoolsModule.instrument({
-    name: 'APM Demo App DevTools',
+    name: 'Poll App DevTools',
     maxAge: 25,
     logOnly: environment.production,
   }),
