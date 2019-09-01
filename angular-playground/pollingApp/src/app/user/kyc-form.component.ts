@@ -6,11 +6,11 @@ import {ProgressBarModule} from 'primeng/primeng';
 
 import { debounceTime } from 'rxjs/operators';
 
-@Component({  
+@Component({
   selector: 'app-kyc-form',
   templateUrl: './kyc-form.component.html',
   styleUrls: ['./kyc-form.component.less']
-  })  
+  })
 export class KycFormComponent implements OnInit {
   kycForm: FormGroup;
   progress: number;
@@ -22,14 +22,14 @@ export class KycFormComponent implements OnInit {
   };
 
   constructor(private fb: FormBuilder) { }
-  
+
   ngOnInit() {
     this.progress = 16;
 
     this.kycForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.minLength(3)]],  
-      
-      // 1.  email group 
+      userName: ['', [Validators.required, Validators.minLength(3)]],
+
+      // 1.  email group
       emailGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         confirmEmail: ['', Validators.required],
@@ -38,14 +38,14 @@ export class KycFormComponent implements OnInit {
       notification: 'email',
       rating: [null, ratingRange(1, 5)]
      // sendCatalog: true,
-      //addresses: this.fb.array([this.buildAddress()])
+      // addresses: this.fb.array([this.buildAddress()])
     });
 
     this.kycForm.get('notification').valueChanges.subscribe(
       value => this.setNotification(value)
     );
 
-    // 2 attaching the error message after a debounce of 1000  
+    // 2 attaching the error message after a debounce of 1000
     const emailControl = this.kycForm.get('emailGroup.email');
     emailControl.valueChanges.pipe(
       debounceTime(1000)
@@ -53,10 +53,9 @@ export class KycFormComponent implements OnInit {
       value => this.setMessage(emailControl)
     );
 
-    this.kycForm.valueChanges.subscribe(control=>{
-      debugger;
-    })
-  }  
+    this.kycForm.valueChanges.subscribe(control => {
+    });
+  }
   save() {
     console.log(this.kycForm);
     console.log('Saved: ' + JSON.stringify(this.kycForm.value));
@@ -64,7 +63,7 @@ export class KycFormComponent implements OnInit {
   // 3. custom validation for email
   setMessage(c: AbstractControl): void {
     this.emailMessage = '';
-    // 4. Reading from the class level variables 
+    // 4. Reading from the class level variables
     console.log(this.validationMessages);
     if ((c.touched || c.dirty) && c.errors) {
       this.emailMessage = Object.keys(c.errors).map(
@@ -100,15 +99,14 @@ function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
   return { 'match': true };
 }
 
-function ratingRange(min: number, max: number):ValidatorFn{
-  return (c: AbstractControl) : { [key: string]:boolean } | null =>{ 
+function ratingRange(min: number, max: number): ValidatorFn {
+  return (c: AbstractControl): { [key: string]: boolean } | null => {
 
-    if(c!=null && (isNaN(c.value) || c.value<min || c.value > max))
-    {
+    if (c != null && (isNaN(c.value) || c.value < min || c.value > max)) {
       return {'range': true};
-    }  
+    }
     return null;
-  }
+  };
 }
 
 

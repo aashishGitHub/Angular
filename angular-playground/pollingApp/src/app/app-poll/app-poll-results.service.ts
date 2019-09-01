@@ -11,7 +11,7 @@ import { AppPollResult } from './app-poll-result';
   providedIn: 'root'
 })
 export class AppPollResultsService {
-  private pollResultUrl = "pollResult";
+  private pollResultUrl = 'pollResult';
 
   constructor(private http: HttpClient) { }
 

@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
   imports: [
    BrowserModule,
    BrowserAnimationsModule,
-   ReactiveFormsModule,   
+   ReactiveFormsModule,
    AppRoutingModule,
    StoreModule.forRoot({}),
    StoreDevtoolsModule.instrument({

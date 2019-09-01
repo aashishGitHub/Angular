@@ -8,41 +8,41 @@ import { AuthService } from 'src/app/user/auth.service';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-    templateUrl:'./login.component.html'
+    templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
     errorMessage: string;
 
-    maskUserName : boolean;
+    maskUserName: boolean;
 
     constructor(
         private authService: AuthService,
         private router: Router,
         private store: Store<any>
 
-    ){}
-    ngOnInit(){
+    ) {}
+    ngOnInit() {
       this.store.pipe(select('users')).subscribe(
         users => {
-          if(users){
+          if (users) {
             this.maskUserName = users.maskUserName;
           }
-        })
+        });
     }
-  
-    checkChanged(changed: boolean): void{
+
+    checkChanged(changed: boolean): void {
       this.store.dispatch({
         type: '[User] MASK_USER_NAME',
         payload: changed
       });
     }
-    
+
     login(loginForm: NgForm): void {
         if (loginForm && loginForm.valid) {
           const userName = loginForm.form.value.userName;
           const password = loginForm.form.value.password;
           this.authService.login(userName, password);
-    
+
           if (this.authService.redirectUrl) {
             this.router.navigateByUrl(this.authService.redirectUrl);
           } else {
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit{
         }
       }
 
-      cancel():void{
-        this.router.navigate(['welcome'])
+      cancel(): void {
+        this.router.navigate(['welcome']);
       }
 }

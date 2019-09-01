@@ -19,7 +19,7 @@ const routes: Routes = [
        canActivate: [AuthGuard],
       loadChildren: './app-poll/app-poll.module#AppPollModule'
     },
-    { path: 'kycform', loadChildren:'./user/user.module#UserModule'},
+    { path: 'kycform', loadChildren: './user/user.module#UserModule'},
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   ]
 },

@@ -8,16 +8,16 @@ import { AuthService } from 'src/app/user/auth.service';
   styleUrls: ['./menu.component.less']
 })
 export class MenuComponent implements OnInit {
-  pageTitle="PollApp";
+  pageTitle = 'PollApp';
 
-  constructor(private authService: AuthService, 
-    private router: Router){} 
-  
-  ngOnInit() {    
+  constructor(private authService: AuthService,
+    private router: Router) {}
+
+  ngOnInit() {
   }
 
-  //Getter property as we use it like  *ngIf="isLoggedIn">
-  get isLoggedIn(): boolean{ 
+  // Getter property as we use it like  *ngIf="isLoggedIn">
+  get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
 
@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit {
     }
     return '';
   }
-  
+
   logOut(): void {
     this.authService.logout();
     this.router.navigate(['/welcome']);

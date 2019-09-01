@@ -1,17 +1,17 @@
-export interface AppPoll{
+export interface AppPoll {
 
-    id: number,
-    title: string,
-    publishedDate: number,
-    answer: Answer
+    id: number;
+    title: string;
+    publishedDate: number;
+    answer: Answer;
 }
 
-export interface Answer{
-    type: string,
+export interface Answer {
+    type: string;
     options: Option[];
 }
 
-export interface Option{
-    id: number,
-    label: string
+export interface Option {
+    id: number;
+    label: string;
 }

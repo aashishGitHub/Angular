@@ -5,21 +5,22 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
-export class AuthGuard implements CanActivate{
+export class AuthGuard implements CanActivate {
 
     constructor(private authService: AuthService,
-    private router: Router){
+    private router: Router) {
 
     }
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-        return this.checkLoggedIn(state.url);      
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        return this.checkLoggedIn(state.url);
     }
 
-    checkLoggedIn(url: string): boolean{
-        if( this.authService.isLoggedIn())
+    checkLoggedIn(url: string): boolean {
+        if ( this.authService.isLoggedIn()) {
         return true;
+        }
 
          // Retain the attempted URL for redirection
          this.authService.redirectUrl = url;

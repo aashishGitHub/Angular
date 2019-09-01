@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule
   ],
-  exports: [    
+  exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
